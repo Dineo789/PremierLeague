@@ -26,5 +26,7 @@ public interface SOService {
 
     @GET
     Call<PremierLeaguePlayers> getPlayers(@Header("X-Auth-Token") String apiKey,@Url String url);//for dynamic url
+    @GET
+    Call<PremierLeagueFixtures> getTeamFixtures(@Header("X-Auth-Token") String apiKey,@Url String url);
 
 }

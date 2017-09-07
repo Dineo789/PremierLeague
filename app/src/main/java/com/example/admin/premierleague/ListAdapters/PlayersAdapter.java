@@ -110,7 +110,7 @@ public class PlayersAdapter extends RecyclerView.Adapter<PlayersAdapter.MyViewHo
             i.putExtra("team_name", teamItem.getName());
             i.putExtra("team_shortname", teamItem.getShortName());
             i.putExtra("team_logo",teamItem.getCrestUrl());
-            i.putExtra("team_url",teamItem.returnUrl());
+            i.putExtra("team_url",teamItem.returnPlayersUrl());
             //i.putExtra("datumTodoa", item.getRecordDate());
             // i.putExtra("idTodoa", item.getItemId());
             context.startActivity(i);*/

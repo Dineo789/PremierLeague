@@ -1,40 +1,23 @@
 package com.example.admin.premierleague.ListAdapters;
 
 import android.content.Context;
-import android.graphics.drawable.PictureDrawable;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.GenericRequestBuilder;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.model.StreamEncoder;
-import com.bumptech.glide.load.resource.file.FileToStreamDecoder;
-import com.caverock.androidsvg.SVG;
 import com.example.admin.premierleague.Data.Fixture;
-import com.example.admin.premierleague.Data.Team;
 import com.example.admin.premierleague.R;
-import com.example.admin.premierleague.SVGHandler.SvgDecoder;
-import com.example.admin.premierleague.SVGHandler.SvgDrawableTranscoder;
-import com.example.admin.premierleague.SVGHandler.SvgSoftwareLayerSetter;
 
-import java.io.InputStream;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 /**
- * Created by admin on 2017/08/30.
+ * Created by admin on 2017/09/07.
  */
 
-public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.MyViewHolder> {
+public class TeamFixtureAdapter extends RecyclerView.Adapter<TeamFixtureAdapter.MyViewHolder>  {
 
     private List<Fixture> fixtureList;
     Context context;
@@ -57,22 +40,22 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.MyView
 
     }
 
-    public FixturesAdapter(Context context, List<Fixture> fixtureList) {
+    public TeamFixtureAdapter(Context context, List<Fixture> fixtureList) {
         this.context = context;
         this.fixtureList = fixtureList;
     }
 
     @Override
-    public FixturesAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TeamFixtureAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fixture_item, parent, false);
 
 
-        return new FixturesAdapter.MyViewHolder(itemView);
+        return new TeamFixtureAdapter.MyViewHolder(itemView);
     }
 
 
     @Override
-    public void onBindViewHolder(FixturesAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(TeamFixtureAdapter.MyViewHolder holder, int position) {
 
 
         Fixture team = fixtureList.get(position);
@@ -90,7 +73,12 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.MyView
 
         holder.teamHome.setText(team.getHomeTeamName());
         holder.teamHomeScore.setText(team.getResult().getGoalsHomeTeam());
+
         holder.teamAway.setText(team.getAwayTeamName());
+        //Attempt to handle null values
+        if(team.getAwayTeamName()== null){
+            holder.teamAway.setText("Null");
+        }
         holder.date.setText(team.getDate());
         holder.teamAwayScore.setText(team.getResult().getGoalsAwayTeam());
 

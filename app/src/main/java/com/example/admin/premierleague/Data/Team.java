@@ -44,9 +44,19 @@ public class Team {
         this.links = links;
     }
 
-    public String returnUrl() {
+    public String returnPlayersUrl() {
 
         String url = links.getPlayers().getHref();
+        return url;
+    }
+    public String returnFixturesUrl() {
+
+        String url = links.getFixtures().getHref();
+        return url;
+    }
+    public String returnMyFixturesUrl() {
+
+        String url = links.getFixtures().getHref();
         return url;
     }
 

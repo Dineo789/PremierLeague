@@ -45,17 +45,20 @@ public class TeamActivity extends AppCompatActivity {
         String teamShortname = null;
         String teamLogo = null;
         final String teamPlayers;
+        final String teamFixtures;
 
         // Log.i("TeamActivity", "hey");
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) {
             teamName = "No data";
             teamPlayers = "fxg";
+            teamFixtures ="dscsd";
         } else {
             teamName = bundle.getString("team_name");
             teamShortname = bundle.getString("team_shortname");
             teamLogo = bundle.getString("team_logo");
-            teamPlayers = bundle.getString("team_url");
+            teamPlayers = bundle.getString("teamplayer_url");
+            teamFixtures = bundle.getString("teamfixture_url");
 
 
         }
@@ -71,7 +74,7 @@ public class TeamActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Log.d("TeamActivity", "hey" + teamName);
-                Toast.makeText(TeamActivity.this, "hey " + teamPlayers, Toast.LENGTH_SHORT).show();
+                Toast.makeText(TeamActivity.this, "hey " + teamFixtures, Toast.LENGTH_SHORT).show();
 
 
             }
@@ -105,7 +108,7 @@ public class TeamActivity extends AppCompatActivity {
                 PlayersFragment.class, null);
         tabHost.addTab(
                 tabHost.newTabSpec("tab2").setIndicator("Fixture", null),
-                FixtureFragment.class, null);
+                TeamFixtureFragment.class, null);
         for (int i = 0; i < tabHost.getTabWidget().getChildCount(); i++) {//keeps track of the tabs and apply style
             tabHost.getTabWidget().getChildTabViewAt(i).setBackgroundResource(R.drawable.tab_indicator);
         }

@@ -18,6 +18,7 @@ public class PremierLeagueFixtures {
     @SerializedName("fixtures")
     @Expose
     private List<Fixture> fixtures = null;
+    private List<Fixture> teamFixtures;
 
     public Integer getCount() {
         return count;
@@ -29,7 +30,8 @@ public class PremierLeagueFixtures {
 
     public List<Fixture> getFixtures() {
         return fixtures;
-    }
+    }//Returns general fixtures
+    //Need to add Teams Fixture
 
     public void setFixtures(List<Fixture> fixtures) {
         this.fixtures = fixtures;

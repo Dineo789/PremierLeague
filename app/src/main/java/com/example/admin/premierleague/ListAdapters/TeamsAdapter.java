@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.GenericRequestBuilder;
 import com.bumptech.glide.Glide;
@@ -137,7 +136,8 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.MyViewHolder
             i.putExtra("team_name", teamItem.getName());
             i.putExtra("team_shortname", teamItem.getShortName());
             i.putExtra("team_logo", teamItem.getCrestUrl());
-            i.putExtra("team_url", teamItem.returnUrl());
+            i.putExtra("teamplayer_url", teamItem.returnPlayersUrl());
+            i.putExtra("teamfixture_url",teamItem.returnFixturesUrl());
             //i.putExtra("datumTodoa", item.getRecordDate());
             // i.putExtra("idTodoa", item.getItemId());
             context.startActivity(i);
